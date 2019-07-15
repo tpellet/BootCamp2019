@@ -1,0 +1,1383 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style><title>README</title></head><body><article class="markdown-body"><h1 id="open-source-economics-laboratory-ose-lab-boot-camp-2019">Open Source Economics Laboratory (OSE Lab) Boot Camp 2019<a class="headerlink" href="#open-source-economics-laboratory-ose-lab-boot-camp-2019" title="Permanent link"></a></h1>
+<p>This public repository contains the training materials, tutorials, lecture notes, code, and problem sets for the seven-week Boot Camp of the Open Source Economics Laboratory (OSE Lab, <a href="https://www.oselab.org/">https://www.oselab.org/</a>) at the University of Chicago, July 1 to August 9. The OSE Lab was founded by Dr. Richard W. Evans, Senior Lecturer and Associate Director at the University of Chicago M.A. Program in Computational Social Science. The OSE Lab is funded primarily from a 5-year grant from the Charles Koch Foundation. Part of this grant also included the creation of the Dynamic Analysis Center at the Baker Institute at Rice University, which is directed by John Diamond.</p>
+<p>This year&rsquo;s OSE Lab Boot Camp has an exciting new partnership with the Econometric Society&rsquo;s Dynamic Structural Economics Summer School and Conference. July 8-9, 12-14 will be the <a href="https://dseconf.org/dse2019course-program#">Dynamic Structural Economics Summer School</a> organized by <a href="https://editorialexpress.com/jrust/">John Rust</a> (Georgetown University), <a href="http://bschjerning.com/">Bertel Schjerning</a> (University of Copenhagen), and <a href="http://fedor.iskh.me/">Fedor Iskhakov</a> (Australia National University). The Dynamic Structural Economics Conference, &ldquo;<a href="https://editorialexpress.com/conference/DSE2019/program/DSE2019.html">Applications in Industrial Organization, Marketing, and Business</a>&rdquo; will take place on July 10-11 and is organized by <a href="https://www.chicagobooth.edu/faculty/directory/m/sanjog-misra">Sanjog Misra</a> (Booth School of Business) and <a href="https://www.chicagobooth.edu/faculty/directory/h/gunter-j-hitsch">Guenter Hitsch</a> (Booth School of Business). All OSE Lab students will be participants in both the DSE Summer School and in the conference.</p>
+<p>This <code>README.md</code> serves as a syllabus and reference for the OSE Lab Boot Camp. This document has 12 sections.</p>
+<ol>
+<li><a href="#1-ose-lab-leadership">OSM Lab leadership</a></li>
+<li><a href="#2-boot-camp-schedule">Boot Camp schedule</a></li>
+<li><a href="#3-instructions-for-installing-the-anaconda-distribution-of-python">Instructions for installing the Anaconda distribution of Python</a></li>
+<li><a href="#4-text-editor-suggestions">Text editor suggestions</a></li>
+<li><a href="#5-pep-8-docstring-commenting-and-module-structure">PEP 8, docstring commenting, and module structure</a></li>
+<li><a href="#6-using-latex">Using LaTeX</a></li>
+<li><a href="#7-git-and-gitHub-tutorial">Git and GitHub.com tutorial</a></li>
+<li><a href="#8-jupyter-notebooks">Jupyter notebooks</a></li>
+<li><a href="#9-python-tutorials">Python tutorials</a></li>
+<li><a href="#10-other-books">Other Books</a></li>
+<li><a href="#11-c-tutorials">C++ tutorials</a></li>
+<li><a href="#12-references">References</a></li>
+</ol>
+<h2 id="1-ose-lab-leadership">1. OSE Lab Leadership<a class="headerlink" href="#1-ose-lab-leadership" title="Permanent link"></a></h2>
+<p><strong>Director: <a href="https://sites.google.com/site/rickecon/">Dr. Richard W. Evans</a> <a href="mailto:rwevans@uchicago.edu">(rwevans@uchicago.edu)</a>.</strong> The Director and Founder of the OSM Lab is <a href="https://sites.google.com/site/rickecon/">Richard W. Evans</a>. Dr. Evans is a Senior Lecturer and Associate Director of the M.A. Program in Computational Social Science at the University of Chicago. He is also a steering committee member of <a href="https://quantecon.org/">QuantEcon</a>.</p>
+<p><strong>Director: <a href="https://sites.google.com/site/simonscheidegger/home">Dr. Simon Scheidegger</a> <a href="mailto:simon.scheidegger@unil.ch">(simon.scheidegger@unil.ch)</a>.</strong> This year&rsquo;s Boot Camp is Co-Organized by Dr. Simon Scheidegger. Simon is Assistant Professor in the Department of Finance at HEC Lausanne.</p>
+<p><strong>Logistics and finances: Marty Evans, OSE Lab Administrative Director <a href="mailto:martye@uchicago.edu">(martye@uchicago.edu)</a></strong>: Marty Evans is the Administrative Director of the OSE Lab. She coordinates the student and instructor travel, housing, and financial matters as well as other logistical needs.</p>
+<p><strong>Instructors.</strong> The OSE Lab has excellent instructors and presenters from economics and computation. Below is a list of this year&rsquo;s instructors and presenters in alphabetical order by last name for each of the three events in this year&rsquo;s boot camp. To see what they teach and when, check the respective <a href="https://github.com/OpenSourceEcon/BootCamp2019/tree/master/Econ">econ</a>, and <a href="https://github.com/OpenSourceEcon/BootCamp2019/tree/master/Computation">computation</a> detailed schedule pages.</p>
+<p>OSE Lab Senior Instructors and Presenters (in alphabetical order)
+* <a href="https://economics.byu.edu/Pages/Faculty%20Pages/Scott-S.-Condie%2c-PhD.aspx">Scott Condie</a>, Brigham Young University
+* <a href="https://sites.google.com/site/rickecon/">Richard Evans</a>, University of Chicago
+* <a href="http://larspeterhansen.org/">Lars Hansen</a>, University of Chicago
+* <a href="https://www.bf.uzh.ch/en/persons/kuebler-felix">Felix Kubler</a>, University of Zurich
+* <a href="https://sites.google.com/site/kerkphillips/">Kerk Phillips</a>, Congressional Budget Office
+* <a href="https://editorialexpress.com/jrust/">John Rust</a>, Georgetown University
+* <a href="https://sites.google.com/site/simonscheidegger/">Simon Scheidegger</a>, HEC Lausanne
+* <a href="http://www.econ.yale.edu/smith/">Anthony Smith, Jr.</a>, Yale University
+* <a href="http://felix-tintelnot.wikidot.com/">Felix Tintelnot</a>, University of Chicago Economics
+* <a href="http://faculty.chicagobooth.edu/thomas.winberry/">Thomas Winberry</a>, University of Chicago Booth School of Business</p>
+<p>Graduate Instructors
+* Marlon Azinovic, University of Zurich
+* Rebekah Dix, Massachusetts Institute of Technology
+* Jan Ertl, Oxford University</p>
+<p><a href="https://dseconf.org/dse2019course-program#">DSE Summer School</a> Instructors (in alphabetical order)
+* <a href="http://individual.utoronto.ca/vaguirre/">Victor Aguirregabiria</a>, University of Toronto
+* <a href="https://faculty.chicagobooth.edu/oystein.daljord/">Øystein Daljord</a>, University of Chicago Booth School of Business
+* <a href="http://paulellickson.com/">Paul Ellickson</a>, University of Rochester
+* <a href="https://www.chicagobooth.edu/faculty/directory/h/gunter-j-hitsch">Guenter Hitsch</a>, University of Chicago Booth School of Business
+* <a href="http://fedor.iskh.me/">Fedor Iskhakov</a>, Australia National University
+* <a href="https://www.business.unsw.edu.au/our-people/mikekeane">Michael Keane</a>, University of New South Wales Business School
+* <a href="https://www.cmu.edu/tepper/faculty-and-research/faculty-by-area/profiles/miller-robert.html">Robert A. Miller</a>, Carnegie Mellon University
+* <a href="https://www.chicagobooth.edu/faculty/directory/m/sanjog-misra">Sanjog Misra</a>, University of Chicago Booth School of Business
+* <a href="https://economics.mit.edu/faculty/wnewey">Whitney Newey</a>, MIT
+* <a href="https://scholar.harvard.edu/pakes/home">Ariel Pakes</a>, Harvard University
+* <a href="https://editorialexpress.com/jrust/">John Rust</a>, Georgetown University
+* <a href="http://bschjerning.com/">Bertel Schjerning</a>, University of Copenhagen</p>
+<p><a href="https://editorialexpress.com/conference/DSE2019/program/DSE2019.html">DSE Conference</a> Presenters and Organizers (in alphabetical order)
+* <a href="https://www.fuqua.duke.edu/faculty/bryan-bollinger">Bryan Bollinger</a>, Duke University
+* <a href="https://chengchou.github.io/">Cheng Chou</a>, University of Leicester
+* <a href="https://sites.google.com/berkeley.edu/giovannicompiani/home">Giovanni Compiani</a>, University of California, Berkeley
+* <a href="http://paulellickson.com/">Paul Ellickson</a>, University of Rochester
+* <a href="https://www.chicagobooth.edu/faculty/directory/h/gunter-j-hitsch">Guenter Hitsch</a>, University of Chicago Booth School of Business
+* <a href="https://jfhoude.wiscweb.wisc.edu/">Jean Francois Houde</a>, University of Wisconsin-Madison
+* <a href="http://fedor.iskh.me/">Fedor Iskhakov</a>, Australia National University
+* <a href="https://www.business.uzh.ch/en/research/professorships/qba/members/mueller.html">Philipp Müller</a>, University of Zurich
+* <a href="https://www.chicagobooth.edu/faculty/directory/m/sendhil-mullainathan">Sendhil Mullainathan</a>, University of Chicago Booth School of Business
+* <a href="https://murryecon.weebly.com/">Charles Murray</a>, Boston College
+* <a href="https://www.gsb.stanford.edu/faculty-research/faculty/harikesh-s-nair">Harikesh Nair</a>, Stanford Graduate School of Business
+* <a href="https://economics.sas.upenn.edu/people/aviv-nevo">Aviv Nevo</a>, University of Pennsylvania
+* <a href="https://sites.google.com/site/matthewosborne/">Matthew Osborne</a>, University of Toronto
+* <a href="https://business.ucf.edu/person/harry-paarsch/">Harry Paarsch</a>, University of Central Florida
+* <a href="https://scholar.harvard.edu/pakes/home">Ariel Pakes</a>, Harvard University
+* <a href="http://individual.utoronto.ca/souza_rodrigues/">Eduardo Souza-Rodrigues</a>, University of Toronto
+* <a href="https://editorialexpress.com/jrust/">John Rust</a>, Georgetown University
+* <a href="http://bschjerning.com/">Bertel Schjerning</a>, University of Copenhagen
+* <a href="https://economics.mit.edu/grad/vsemen">Vira Semenova</a>, Harvard University
+* <a href="http://people.bu.edu/tsimcoe/">Timothy Simcoe</a>, Boston University
+* <a href="https://som.yale.edu/faculty/k-sudhir">K. Sudhir</a>, Yale School of Management
+* <a href="http://www.rotman.utoronto.ca/FacultyAndResearch/Faculty/FacultyBios/Webb">Ryan Webb</a>, University of Toronto
+* <a href="https://sites.google.com/site/iueconomicsrulixiao/">Ruli Xiao</a>, Indiana University</p>
+<h2 id="2-boot-camp-schedule">2. Boot Camp Schedule<a class="headerlink" href="#2-boot-camp-schedule" title="Permanent link"></a></h2>
+<p>The OSE Lab Boot Camp 2019 begins on Monday, July 1 and ends on Friday, August 9. Classes will be held Monday through Friday, 8am to noon in Saieh Hall, Room 247 at the University of Chicago. The exception is the Dynamic Structural Economics Workshop and Conference held during week 2, July 8-14. Workshop days on July 8-9 and 12-14 will be held at the University of Chicago Gleacher Center in Downtown Chicago. And the DSE conference will be held at the Booth School of Business. The curriculum consists of economic theory and computational methods with some math and statistics.</p>
+<p>We have posted a one-page PDF of the <a href="/OSE_Lab_topic_detail_2019.pdf">OSE Lab boot camp schedule</a> on this repository. Below is a summary schedule of topics. More detailed schedules are on the respective <a href="https://github.com/OpenSourceEcon/BootCamp2019/tree/master/Econ">econ</a> and <a href="https://github.com/OpenSourceEcon/BootCamp2019/tree/master/Computation">computation</a> detailed schedule pages.</p>
+<h3 id="week-1">Week 1<a class="headerlink" href="#week-1" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">Date</th>
+<th align="center">Day</th>
+<th align="left"><a href="https://github.com/OpenSourceEcon/BootCamp2019/tree/master/Computation#week-1">Computation</a> (8-10am)</th>
+<th align="left"><a href="https://github.com/OpenSourceEcon/BootCamp2019/tree/master/Econ#week-1">Econ</a> (10am-noon)</th>
+<th align="left"><a href="https://github.com/OpenSourceEcon/BootCamp2019/tree/master/Computation#week-1">Computation</a> (8am-noon)</th>
+<th align="left">Lunch speaker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">6-18</td>
+<td align="center">M</td>
+<td align="left">Numerical derivatives</td>
+<td align="left">Dynamic programming</td>
+<td align="left"></td>
+<td align="left">Safety office</td>
+</tr>
+<tr>
+<td align="center">6-19</td>
+<td align="center">T</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Python intro, standard library</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">6-20</td>
+<td align="center">W</td>
+<td align="left">Numerical integration</td>
+<td align="left">Dynamic programming</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">6-21</td>
+<td align="center">Th</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="center">6-22</td>
+<td align="center">F</td>
+<td align="left">Newton&rsquo;s method</td>
+<td align="left">Dynamic programming</td>
+<td align="left">Object oriented progr.</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="week-2">Week 2<a class="headerlink" href="#week-2" title="Permanent link"></a></h3>
+<p><strong>TBA</strong></p>
+<!-- | Date | Day | [Math](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Math#week-2) (8-10am) | [Econ](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Econ#week-2) (10am-noon) | [Computation](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Computation#schedule) (8am-noon) | Lunch speaker |
+|:---:|:---:|:--- |:--- |:--- |:--- |
+6-25  | M   | Inner product spaces | Stochastic processes |                      |     |
+6-26  | T   |                      |                      | Data visualization   |     |
+6-27  | W   | Inner product spaces | Ergodicity           |                      |   |
+6-28  | Th  |                      |                      | Pandas, data methods | [Laurence Kotlikoff](https://www.kotlikoff.net/) |
+6-29  | F   | Inner product spaces | Stationarity         |                      |  |
+
+### Week 3
+
+| Date | Day | [Math](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Math#week-3) (8-10am) | [Econ](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Econ#week-3) (10am-noon) | [Computation](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Computation#schedule) (8am-noon) | Lunch speaker |
+|:---:|:---:|:--- |:--- |:--- |:--- |
+7-2  | M   | Spectral theory     | Overlapping generations models |   |     |
+7-3  | T   |                     |                                | QR, SVD decomposition, SVD  |     |
+7-4  | W   | NO CLASSES: HOLIDAY | NO CLASSES: HOLIDAY            |                      |     |
+7-5  | Th  |                     |                                | Drazin inv., page rank |     |
+7-6  | F   | Spectral theory     | Overlapping generations models |                      |   |
+
+### Week 4
+
+| Date | Day | [Math](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Math#week-4) (8-10am) | [Econ](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Econ#week-4) (10am-noon) | [Computation](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Computation#schedule) (8am-noon) | Lunch speaker |
+|:---:|:---:|:--- |:--- |:--- |:--- |
+7-9   | M   | Optim. overview, convex analysis | DSGE |                     |     |
+7-10  | T   |                         |                            | High performance computing |     |
+7-11  | W   | Convex analysis  | DSGE |                     | [Lars Hansen](http://larspeterhansen.org/) |
+| |     |                  |      |                     | [Lars slides](https://github.com/OpenSourceMacro/BootCamp2018/blob/master/Talks/Hansen/hansen_LAB.pdf) |
+| |     |                  |      |                     | [Joe slides](https://github.com/OpenSourceMacro/BootCamp2018/blob/master/Talks/Hansen/Huang_Presentation.pdf) |
+7-12  | Th  |                  |                            | High performance computing |     |
+7-13  | F   | Convex analysis  | DSGE |                     |     |
+
+### Week 5
+
+| Date | Day | [Math](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Math#week-5) (8-10am) | [Econ](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Econ#week-5) (10am-noon) | [Computation](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Computation#schedule) (8am-noon) | Lunch speaker |
+|:---:|:---:|:--- |:--- |:--- |:--- |
+7-16  | M   | Linear optimization | Structural estimation: MLE |                  |     |
+7-17  | T   |                     |                            | High performance computing |     |
+7-18  | W   | Linear optimization | Structural estimation: GMM |                  | [John Diamond](https://www.bakerinstitute.org/experts/john-w-diamond/) |
+| |     |  |  |  | [paper](https://github.com/OpenSourceMacro/BootCamp2018/blob/master/Talks/Diamond/Paper_MacroDistEffectsOfCarbonTax.pdf), [slides](https://github.com/OpenSourceMacro/BootCamp2018/blob/master/Talks/Diamond/Slides_MacroDistEffectsOfCarbonTax.pdf) |
+7-19  | Th  |                     |                            | High performance computing |     |
+7-20  | F   | Linear optimization | Structural estimation: SMM |  | [Student presentationas](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Talks/StudentPresents) |
+
+### Week 6
+
+| Date | Day | [Math](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Math#week-6) (8-10am) | [Econ](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Econ#week-6) (10am-noon) | [Computation](https://github.com/OpenSourceMacro/BootCamp2018/tree/master/Computation#schedule) (8am-noon) | Lunch speaker |
+|:---:|:---:|:--- |:--- |:--- |:--- |
+7-23  | M   | Nonlinear optimization | Asset Pricing |                      |     |
+7-24  | T   |                        |               | Num. diff. and integr. |     |
+7-25  | W   | Nonlinear optimization | Asset Pricing |  | Sebastian James |
+7-26  | Th  |                        |               | Simplex, line search, Newton's |     |
+7-27  | F   | Nonlinear optimization | Asset Pricing |                      | TBA | -->
+
+<p>This will be an intensive six weeks. We expect that your attendance of lectures plus homework time might average 50-60 hours per week of work.</p>
+<p>We have provided 6 areas of tutorials that you will benefit from reading and working through before the training. We will, of course, teach these things as we go through the material. But we will be able to proceed at a faster pace if the attendees are already familiar with most of the concepts below.</p>
+<p>Pre-course Tutorial Areas</p>
+<ol>
+<li>Instructions for installing the Anaconda distribution of Python</li>
+<li>Text editor suggestions (Atom, Sublime Text 3, Vim)</li>
+<li>PEP8, docstring commenting, and module structure</li>
+<li>Git and GitHub tutorial</li>
+<li>Jupyter Notebooks</li>
+<li>Basic Python tutorials (data structures, logic, functions and modules, pandas, root finders and minimizers)</li>
+</ol>
+<h2 id="3-instructions-for-installing-the-anaconda-distribution-of-python">3. Instructions for installing the Anaconda distribution of Python<a class="headerlink" href="#3-instructions-for-installing-the-anaconda-distribution-of-python" title="Permanent link"></a></h2>
+<p>We will be using the <a href="https://www.python.org/">Python</a> programming language and many of its powerful libraries for writing the code that will run most of the computational methods we will use during the Boot Camp. Using an open source language, such as Python, has the advantage of being free and accessible for anyone who wishes to learn these materials or contribute to these projects. Being open source also allows Python users to go into the source code of any function to modify it to suit one&rsquo;s needs.</p>
+<p>We recommend that each participant download the Anaconda distribution of Python provided by <a href="https://www.anaconda.com/distribution/">Anaconda, Inc.</a>. We recommend the most recent stable version of Python, which is currently Python 3.7. This can be done from the <a href="https://www.anaconda.com/distribution/">Anaconda download page</a> for Windows, Mac OSX, and Linux machines.</p>
+<h2 id="4-text-editor-suggestions">4. Text editor suggestions<a class="headerlink" href="#4-text-editor-suggestions" title="Permanent link"></a></h2>
+<p>In our recommended Python development workflow, you will write Python scripts and modules (<code>*.py</code> files) in a text editor. Then you will run those scripts from your terminal. You will want a capable text editor for developing your code. Many capable text editors exist, but we recommend three.</p>
+<ol>
+<li><a href="https://atom.io">Atom</a></li>
+<li><a href="https://www.sublimetext.com/">Sublime Text 3</a></li>
+<li><a href="http://www.vim.org">Vim</a></li>
+</ol>
+<p>Atom and Vim are completely free. A trial version of Sublime Text 3 is available for free, but a licensed version is $80 (US dollars). In the following subsections, we give some of the details of each of the above three text editors.</p>
+<h3 id="41-atom">4.1. Atom<a class="headerlink" href="#41-atom" title="Permanent link"></a></h3>
+<p><a href="https://atom.io">Atom</a> is an open source text editor developed by people at GitHub.com. This editor has all the features of Sublime Text 3, but it also allows users full customizability. Further, it has been a while now that the users of Atom have surpassed the critical mass necessary to keep the editor progressing with the most cutting edge additions.</p>
+<p>There are several packages you&rsquo;ll want to install with Atom.  Once Atom is installed, you can add packages by navigating Atom-&gt;Preferences-&gt;Install and then typing in the name of the package you would like to install.</p>
+<p>For work with Python, we recommend the following packages be installed:</p>
+<ul>
+<li>MagicPython</li>
+<li>python-indent</li>
+<li>tabs-to-spaces</li>
+<li>minimap</li>
+<li>open-recent</li>
+<li>linter-python-pep8</li>
+</ul>
+<p>For development with GitHub we recommend:</p>
+<ul>
+<li>merge-conflict</li>
+</ul>
+<p>If using LaTex in this editor, the following packages are helpful:</p>
+<ul>
+<li>atom-latex</li>
+<li>latextools</li>
+<li>autocomplete-bibtex</li>
+<li>dictionary</li>
+<li>latexer</li>
+<li>pdf-view</li>
+</ul>
+<p>In addition, if you are using a Mac, you will also want to download the <a href="http://skim-app.sourceforge.net">Skim</a> PDF viewer to aid in displaying PDF files compiled from TeX with Atom.</p>
+<h3 id="42-sublime-text-3">4.2. Sublime Text 3<a class="headerlink" href="#42-sublime-text-3" title="Permanent link"></a></h3>
+<p><a href="https://www.sublimetext.com">Sublime Text 3</a> is the most widely used and versatile private software text editor. It has tremendous flexibility, as well as the polish of a piece of professional software. Sublime Text 3 will cost $80 for a license, although you can use a trial version indefinitely without charge while only having to suffer through frequent reminders to buy the full version.</p>
+<h3 id="43-vim">4.3. Vim<a class="headerlink" href="#43-vim" title="Permanent link"></a></h3>
+<p><a href="http://www.vim.org">Vim</a> is free and very powerful. Vim is the hard-core developer&rsquo;s text editor of choice. The learning curve for using vim is a little steeper than that of Atom and Sublime Text 3, but it also has some advantages for efficient programming. Vim has navigation that does not use a mouse or trackpad. Eventually, your fingers never leave your keyboard. Further, most terminals have Vim built in so you can more easily use Vim to edit scripts and modules on the fly with your terminal session.</p>
+<h2 id="5-pep-8-docstring-commenting-and-module-structure">5. PEP 8, docstring commenting, and module structure<a class="headerlink" href="#5-pep-8-docstring-commenting-and-module-structure" title="Permanent link"></a></h2>
+<p>Computer code executes some set of commands in an organized way. In every case, there are often many ways to execute a set of instructions&ndash;some ways more efficient than others. However, code has at least three functions.</p>
+<ol>
+<li>Efficiently execute the task at hand.</li>
+<li>Be accessible and usable to other programmers.</li>
+<li>Be scalable and integrable with other projects and procedures.</li>
+</ol>
+<p>Bill Gates is credited with the following plea for efficiency and parsimony in code writing.</p>
+<blockquote>
+<p>&ldquo;Measuring programming progress by lines of code is like measuring aircraft building progress by weight.&rdquo;</p>
+</blockquote>
+<p>Strong support for points (2) and (3) is Eagleson&rsquo;s Law.</p>
+<blockquote>
+<p>&ldquo;Any code of your own that you haven&rsquo;t looked at for six or more months might as well have been written by someone else.&rdquo;</p>
+</blockquote>
+<p>Because of the latter two characteristics, Python code has developed some conventions and best practices, some of which have been institutionalized in the <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8&ndash;Style Guide for Python Code</a> (&ldquo;PEP&rdquo; stands for Python Enhancement Proposals). Key examples PEP 8 Python coding conventions are the following.</p>
+<ul>
+<li>Indents should be 4 spaces (not tab)</li>
+<li>Limit all lines to a maximum of 79 characters long blocks of text being limited to 72 characters (Evans limits all his lines to 72 characters)</li>
+<li>Use a space after a comma</li>
+<li>Use a space before and after arithmetic operators</li>
+</ul>
+<p>In the text editors Atom, Sublime Text 3, and Vim, you can install Linter packages that highlight areas of your code that break PEP 8 rules and tell you what the violation is.</p>
+<p>There are fewer conventions in docstring structure, but we have developed some of our own that are outlined in the <a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonFuncs.ipynb">PythonFuncs.ipynb</a> Jupyter notebook. See especially Sections 3 and 4 of the Jupyter notebook.</p>
+<h2 id="6-using-latex">6. Using LaTeX<a class="headerlink" href="#6-using-latex" title="Permanent link"></a></h2>
+<p>You will turn in all of your assignments by using the LaTeX document preparation platform. LaTeX produces documents with a sophisticated mathematical equation engine. Because LaTeX is standard in mathematical and theoretical document exposition, we will be using it in this class. The <a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/LaTeX/LaTeX_tutorial.pdf">LaTeX tutorial PDF chapter</a> in the <a href="https://github.com/OpenSourceMacro/BootCamp2019/tree/master/Tutorials/LaTeX"><code>/Tutorials/LaTeX/</code></a> directory is a great reference for installing and running LaTeX. We have also included in that directory a template <a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/LaTeX/LaTeX_probset_template.tex"><code>LaTeX_probset_template.tex</code></a> as well as the PDf file <a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/LaTeX/LaTeX_probset_template.pdf">(<code>LaTeX_probset_template.pdf</code>)</a> generated by compiling that <code>.tex</code> file.</p>
+<h2 id="7-git-and-github-tutorial">7. Git and GitHub tutorial<a class="headerlink" href="#7-git-and-github-tutorial" title="Permanent link"></a></h2>
+<p>We have included a tutorial on using <a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/git_tutorial.pdf">Git and GitHub.com</a> in the <a href="https://github.com/OpenSourceMacro/BootCamp2019/tree/master/Tutorials">Tutorials</a> directory of this repository. Git is a powerful version control software that comes natively installed on many machines and is widely used. GitHub.com is the most widely used online platform for hosting open source projects and integrating with Git software. Git has a significant learning curve, but it is essential for large collaborations that involve software development.</p>
+<p>A more comprehensive Git resource is <a href="https://git-scm.com/book/en/v2"><em>Pro Git</em></a>, by Chacon and Straub (2014). This book is open access, and is available online at <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a>. But Evans likes having it in his library in hard copy. This book is the difinitive guide with everything Git, and it has as its primary application the interaction between Git and GitHub. However, the workflow described in the tutorial above was hard to find in this Git book.</p>
+<h2 id="8-jupyter-notebooks">8. Jupyter Notebooks<a class="headerlink" href="#8-jupyter-notebooks" title="Permanent link"></a></h2>
+<p><a href="http://jupyter.org/">Jupyter notebooks</a> are files that end with the <code>*.ipynb</code> suffix. These notebooks are opened in a browser environment and are an open source web application that combines instructional text with live executable and modifyable code for many different programming platforms (e.g., Python, R, Julia). Jupyter notebooks are an ideal tool for teaching programming as they provide the code for a user to execute and they also provide the context and explanation for the code. We have provided a number of Jupyter notebooks in the <a href="https://github.com/OpenSourceMacro/BootCamp2019/tree/master/Tutorials">Tutorials</a> folder of this repository.</p>
+<p>These notebooks used to be Python-specific, and were therefore called iPython notebooks (hence the <code>*.ipynb</code> suffix). But Jupyter notebooks now support many programming languages, although the name still pays homage to Python with the vestigal &ldquo;py&rdquo; in &ldquo;Jupyter&rdquo;. The notebooks execute code from the kernel of the specific programming language on your local machine.</p>
+<p>Jupyter notebooks capability will be automatically installed with your download of the <a href="https://www.anaconda.com/download/">Anaconda distribution</a> of Python. If you did not download the Anaconda distribution of Python, you can download Jupyter notebooks separately by following the instructions on the Jupyter <a href="http://jupyter.org/install">install page</a>.</p>
+<h3 id="81-opening-a-jupyter-notebook">8.1. Opening a Jupyter notebook<a class="headerlink" href="#81-opening-a-jupyter-notebook" title="Permanent link"></a></h3>
+<p>Once Jupyter is installed&ndash;whether through Anaconda or through the Jupyter website&ndash;you can open a Jupyter notebook by the following steps.</p>
+<ol>
+<li>Navigate in your terminal to the folder in which the Jupyter notebook files reside. In the case of the Jupyter notebook tutorials in this repository, you would navigate to the <code>~/BootCamp2019/Tutorials/</code> directory.</li>
+<li>Type <code>jupyter notebook</code> at the terminal prompt.</li>
+<li>A Jupyter notebook session will open in your browser, showing the available <code>*.ipynb</code> files in that directory.
+  *  In some cases, you might receive a prompt in the terminal telling you to paste a url into your browser.</li>
+<li>Double click on the Jupyter notebook you would like to open.</li>
+</ol>
+<p>It is worth noting that you can also simply navigate to the URL of the Jupyter notebook file in the GitHub repository on the web (e.g., <a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonReadIn.ipynb">https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonReadIn.ipynb</a>). You can read the Jupyter notebook on GitHub.com, but you cannot execute any of the cells. You can only execute the cells in the Jupyter notebook when you follow the steps above and open the file from a Jupyter notebook session in your browser.</p>
+<h3 id="82-using-an-open-jupyter-notebook">8.2. Using an open Jupyter notebook<a class="headerlink" href="#82-using-an-open-jupyter-notebook" title="Permanent link"></a></h3>
+<p>Once you have opened a Jupyter notebook, you will find the notebook has two main types of cells: Markdown cells and Code cells. Markdown cells have formatted Jupyter notebook markdown text, and serve primarily to present context for the coding cells. A reference for the markdown options in Jupyter notebooks is found in the <a href="http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Working%20With%20Markdown%20Cells.html">Jupyter markdown documentation page</a>.</p>
+<p>You can edit a Markdown cell in a Jupyter notebook by double clicking on the cell and then making your changes. Make sure the cell-type box in the middle of the top menu bar is set to <code>Markdown</code>. To implement your changes in the Markdown cell, type <code>Shift-Enter</code>.</p>
+<p>A Code cell will have a <code>In [ ]:</code> immediately to the left of the cell for input. The code in that cell can be executed by typing <code>Shift-Enter</code>. For a Code cell, the  cell-type box in the middle of the top menu bar says <code>Code</code>.</p>
+<h3 id="83-closing-a-jupyter-notebook">8.3. Closing a Jupyter notebook<a class="headerlink" href="#83-closing-a-jupyter-notebook" title="Permanent link"></a></h3>
+<p>When you are done with a Jupyter notebook, you first save any changes that you want to remain with the notebook. Then you close the browser windows associated with that Jupyter notebook session. You should then close the local server instance that was opened to run the Jupyter notebook in your terminal window. On a Mac or Windows, this is done by going to your terminal window and typing <code>Cmd-C</code> or <code>Ctrl-C</code> and then selecting <code>y</code> for yes and hitting <code>Enter</code>.</p>
+<h2 id="9-python-tutorials">9. Python tutorials<a class="headerlink" href="#9-python-tutorials" title="Permanent link"></a></h2>
+<p>For this training, we have included in this repository six basic Python tutorials in the <a href="https://github.com/OpenSourceMacro/BootCamp2019/tree/master/Tutorials"><code>Tutorials</code></a> directory.</p>
+<ol>
+<li><a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonReadIn.ipynb">PythonReadIn.ipynb</a>. This Jupyter notebook provides instruction on basic Python I/O, reading data into Python, and saving data to disk.</li>
+<li><a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonNumpyPandas.ipynb">PythonNumpyPandas.ipynb</a>. This Jupyter notebook provides instruction on working with data using <code>NumPy</code> as well as Python&rsquo;s powerful data library <code>pandas</code>.</li>
+<li><a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonDescribe.ipynb">PythonDescribe.ipynb</a>. This Jupyter notebook provides instruction on describing, slicing, and manipulating data in Python.</li>
+<li><a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonFuncs.ipynb">PythonFuncs.ipynb</a>. This Jupyter notebook provides instruction on working with and writing Python functions.</li>
+<li><a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonVisualize.ipynb">PythonVisualize.ipynb</a>. This Jupyter notebook provides instruction on creating visualizations in Python.</li>
+<li><a href="https://github.com/OpenSourceMacro/BootCamp2019/blob/master/Tutorials/PythonRootMin.ipynb">PythonRootMin.ipynb</a>. This Jupyter notebook provides instruction on implementing univariate and multivariate root finders and unconstrained and constrained minimizers using functions in the <a href="https://docs.scipy.org/doc/scipy/reference/optimize.html"><code>scipy.optimize</code></a> sub-library.</li>
+</ol>
+<p>To further one&rsquo;s Python programming skills, a number of other great resources exist.</p>
+<ul>
+<li>The <a href="https://docs.python.org/3/tutorial/">official Python 3 tutorial site</a></li>
+<li><a href="https://lectures.quantecon.org/py/">QuantEcon.net</a> is a site run by <a href="http://www.tomsargent.com/">Thomas Sargent</a> (NYU Stern) and <a href="http://johnstachurski.net/">John Stachurski</a> (Australia National University). QuantEcon has a very large number of high-quality economics focused computational tutorials in Python. The first three sections provide a good introduction to Python programming.</li>
+<li><a href="http://www.acme.byu.edu/2017-2018-materials/">Python computational labs</a> of the Applied and Computational Mathematics Emphasis at Brigham Young University.</li>
+<li><a href="https://www.codecademy.com/learn/learn-python">Code Academy&rsquo;s Python learning module</a></li>
+</ul>
+<p>In addition, a number of excellent textbooks and reference manuals are very helpful and may be available in your local library. Or you may just want to have these in your own library. Lutz (2013) is a giant 1,500-page reference manual that has an expansive collection of materials targeted at beginners. Beazley (2009) is a more concise reference but is targeted at readers with some experience using Python. Despite its focus on a particular set of tools in the Python programming language, McKinney (2018) has a great introductory section that can serve as a good starting tutorial. Further, its focus on Python&rsquo;s data analysis capabilities is truly one of the important features of Python. Rounding out the list is Langtangen (2010). This book&rsquo;s focus on scientists and engineers makes it a unique reference for optimization, wrapping C and Fortran and other scientific computing topics using Python.</p>
+<h2 id="10-other-books">10. Other Books<a class="headerlink" href="#10-other-books" title="Permanent link"></a></h2>
+<p>Although the 2019 boot camp does not have extensive sections on pure mathematics anymore, we highly recommend the math book Humpherys, et al (2017). This book can be purchased through <a href="http://bookstore.siam.org/ot152/">SIAM</a> or <a href="https://www.amazon.com/Foundations-Applied-Mathematics-Mathematical-Analysis/dp/1611974895">Amazon</a>.</p>
+<p>The following books are recommendation that will not be required, but that are valuable in the library of a dynamic economist. We will also cover real analysis topics in measure theory. We recommend the following two books for their background on measure theory. Ok (2007) is a great real analysis book for economists. Kolmogorov and Fomin (1979) is a great real analysis book, the last four chapters of which are a good foundation for measure theory. Stokey and Lucas (1989, chap. 7) has an exposition of how measure theory gets used in dynamic stochastic macroeconomic theory. Stokey and Lucas (1989) is probably a good book for any macroeconomist to have in their library. On the economics side, some additional books that we like and recommend are Ljungqvist and Sargent (2012) and Adda and Cooper (2003).</p>
+<h2 id="11-c-tutorials">11. C++ tutorials<a class="headerlink" href="#11-c-tutorials" title="Permanent link"></a></h2>
+<p>Although we will be using Python for most of the Boot Camp, we will use some C++ for the computational labs taught by <a href="https://sites.google.com/site/simonscheidegger/">Simon Scheidegger</a> on July 16, 18, 23, and 25. These computational labs treat high performance computing, parallel computing, and high dimensional approximation. Using supercomputing resources is much more flexible and accessible with C++.</p>
+<p>[TODO: Include tutorial materials here.]</p>
+<h2 id="12-references">12. References<a class="headerlink" href="#12-references" title="Permanent link"></a></h2>
+<ul>
+<li>Adda, Jerome and Russell Cooper, <em>Dynamic Economics: Quantitative Methods and Applications</em>, MIT Press (2003)</li>
+<li>Beazley, David M., <em>Python Essential Reference</em>, 4th edition, Addison-Wesley (2009).</li>
+<li>Chacon, Scott and Ben Straub, <a href="https://git-scm.com/book/en/v2"><em>Pro Git: Everything You Need To Know About Git</em></a>, 2nd edition, Apress (2014).</li>
+<li>Humpherys, Jeffrey, Tyler J. Jarvis, and Emily J. Evans, <em>Foundations of Applied Mathematics, Volume 1: Mathematical Analysis</em>, SIAM (2017).</li>
+<li>Humpherys, Jeffrey, Tyler J. Jarvis, and Emily J. Evans, <em>Foundations of Applied Mathematics, Volume 2: Algorithm Design and Optimization</em>, SIAM (2018, forthcoming).</li>
+<li>Kolmogorov, A. N. and S.V. Fomin, <em>Introductory Real Analysis</em>, translated and edited by Richard A. Silverman, Dover Publications, Inc. (1970).</li>
+<li>Langtangen, Hans Petter, <em>Python Scripting for Computational Science</em>, Texts in Computational Science and Engineering, 3rd edition, Springer (2010).</li>
+<li>Ljungqvist, Lars and Thomas J. Sargent, <em>Recursive Methods in Macroeconomic Theory</em>, 3rd edition, MIT Press (2012).</li>
+<li>Lutz, Mark, <em>Learning Python</em>, 5th edition, O&rsquo;Reilly Media, Inc. (2013)</li>
+<li>McKinney, Wes, <em>Python for Data Analysis</em>, 2nd edition, O&rsquo;Reilly Media, Inc. (2018).</li>
+<li>Ok, Efe A., <em>Real Analysis with Economic Applications</em>, Princeton University Press (2007).</li>
+<li>Stokey, Nancy L., and Robert E. Lucas, Jr. with Edward C. Prescott, <em>Recursive Methods in Economic Dynamics</em>, Harvard University Press (1989).</li>
+</ul></article></body></html>
