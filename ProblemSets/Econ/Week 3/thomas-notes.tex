@@ -1,0 +1,576 @@
+ \documentclass[11pt]{article}
+
+% Extract
+% \usepackage[active,
+%             generate=topology_definitions,
+%             %extract-cmd={section},
+%             extract-env={definition,algorithm}]{extract}
+
+% \usepackage[active,
+%             generate=topology_theorems,
+%             %extract-cmd={section},
+%             extract-env={theorem,corollary,claim}]{extract}
+
+% \begin{extract*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Packages
+
+% AMS 
+\usepackage{amsmath, amssymb, amsthm, amsbsy}
+% Geometry
+\usepackage{geometry}
+% Colors
+\usepackage[usenames,dvipsnames]{xcolor}
+% Figures
+\usepackage{graphicx}
+\usepackage{float}
+% Multi column lists
+\usepackage{multicol}
+% Subfigures
+\usepackage{caption}
+\usepackage{subcaption}
+% Caligraphic
+\usepackage{mathrsfs}
+\usepackage{bbm}
+% Bold
+\usepackage{bm}
+% algos
+\usepackage[linesnumbered, lined, ruled]{algorithm2e}
+% Spacing 
+\usepackage{setspace}
+% Refs/links
+\usepackage[colorlinks=true, citecolor=Blue, linkcolor=blue]{hyperref}
+\newcommand\myshade{85}
+\colorlet{mylinkcolor}{violet}
+\colorlet{mycitecolor}{PineGreen}
+\colorlet{myurlcolor}{Aquamarine}
+
+\hypersetup{
+  linkcolor  = mylinkcolor!\myshade!black,
+  citecolor  = mycitecolor!\myshade!black,
+  urlcolor   = myurlcolor!\myshade!black,
+  colorlinks = true,
+}
+% Bibliography
+\usepackage{filecontents}
+\usepackage{natbib}
+% Indent
+\usepackage{indentfirst}
+% Pretty lists
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=2pt,topsep=3pt}
+\setlist[itemize]{itemsep=2pt,topsep=3pt}
+\setlist[enumerate,1]{label=(\roman*)}
+
+% Code
+\usepackage{listings}
+
+% Appendix
+\usepackage[toc,page]{appendix}
+
+% Math
+\usepackage{mathtools}
+\usepackage{xparse}
+
+% Equation numbering
+\numberwithin{equation}{section}
+
+% Use more than one optional parameter in a new commands
+\usepackage{xargs}                      
+% Todo
+\usepackage[colorinlistoftodos,prependcaption,textsize=normalsize]{todonotes}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Document Settings
+
+% Figure path
+\graphicspath{{./figures/}}
+% Matrix columns
+\setcounter{MaxMatrixCols}{10}
+% So pages will break inside long equation environments
+\allowdisplaybreaks
+% Font
+\usepackage{mathpazo} 
+\linespread{1.05}  
+%\usepackage{courier}
+% Geometry
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+% Counters
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Colors
+
+\definecolor{Tm}{rgb}{0,0,0.80}
+\newcommand{\defi}[1]{\textcolor{MidnightBlue}{\bf #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Environments
+
+\theoremstyle{plain}
+\newtheorem{theorem}{\color{ForestGreen}{\textbf{Theorem}}}[section]
+\newtheorem{claim}{\color{ForestGreen}{\textbf{Claim}}}[section]
+\newtheorem{lemma}[theorem]{\color{ForestGreen}{\textbf{Lemma}}}
+\newtheorem{proposition}[theorem]{\color{ForestGreen}{\textbf{Proposition}}}
+\newtheorem{corollary}[theorem]{\color{ForestGreen}{\textbf{Corollary}}}
+\newtheorem{axiom}[theorem]{\color{ForestGreen}{\textbf{Axiom}}}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+
+\theoremstyle{definition}
+\newtheorem{definition}{\color{MidnightBlue}{\textbf{Definition}}}[section]
+\newtheorem{example}{\color{WildStrawberry}Example}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{calculation}{Calculation}[section]
+\newtheorem{condition}[assumption]{Condition}
+\newtheorem*{solution}{\color{Goldenrod}Solution}
+% \newenvironment{solution}[1][\proofname]{%
+%   \proof[\bf \color{Goldenrod}Solution to #1]%
+% }{\endproof}
+
+\newtheorem{exercise}{\color{YellowOrange}Exercise}[section]
+
+% Literature Summary Standards
+\newtheorem*{motivation}{Motivation}
+\newtheorem*{summary}{Summary}
+\newtheorem*{remark}{Remark}
+\newtheorem*{model}{Model}
+\newtheorem*{tresults}{Theoretical Results}
+\newtheorem*{eresults}{Empirical Results}
+
+% % Framed theorems below (need to redefine each environment)
+
+% \usepackage{mdframed}
+
+% % Example
+% \newmdtheoremenv{theorem}{\color{ForestGreen}{\textbf{Theorem}}}[section]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Math macros
+
+% Math ``brackets''
+\newcommand\parens[1]{\left( #1 \right)}
+\newcommand\squares[1]{\left[ #1 \right]}
+\newcommand\braces[1]{\left\{ #1 \right\}}
+\newcommand\angles[1]{\left\langle #1 \right\rangle}
+\newcommand\ceil[1]{\left\lceil #1 \right\rceil}
+\newcommand\floor[1]{\left\lfloor #1 \right\rfloor}
+\newcommand\abs[1]{\left| #1 \right|}
+\newcommand\dabs[1]{\left\| #1 \right\|}
+\newcommand\vect[1]{\mathbf{#1}}
+\newcommand\closure[1]{\overline{#1}}
+\newcommand\pset[1]{\mathcal{P}\left(#1\right)}
+\newcommand\inv[1]{#1^{-1}}
+\newcommand\norm[1]{\lVert#1\rVert}
+
+% inner product
+\providecommand{\inner}[1]{\left\langle{#1}\right\rangle}
+% stochastic dominance
+\newcommand{\lesd}{\preceq_{\textrm{SD}}}
+
+% Set builder (use \Set ultimately and separate by ;)
+\DeclarePairedDelimiterX{\set}[1]{\{}{\}}{\setargs{#1}}
+\NewDocumentCommand{\setargs}{>{\SplitArgument{1}{;}}m}
+{\setargsaux#1}
+\NewDocumentCommand{\setargsaux}{mm}
+{\IfNoValueTF{#2}{#1} {#1\nonscript\:\delimsize\vert\allowbreak\nonscript\:\mathopen{}#2}}%
+\def\Set{\set*}%
+
+% Shortcut math
+\newcommand{\ls}{\leqslant}
+\newcommand{\gs}{\geqslant}
+\def\ss{\subset}
+\def\sse{\subseteq}
+\def\nss{\not \ss}
+\def\sps{\supset}
+\def\pss{\subsetneq}
+\def\prece{\preccurlyeq}
+\def\condgap{\hspace{1cm}}
+\def\eprec{\preceq}
+% argmax and min
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\es}{\emptyset}
+% Implication and reverse implication
+\def\imp{\Rightarrow}
+\def\pmi{\Leftarrow}
+% Integers up to number
+\newcommand\intsfin[1]{\braces{1, \ldots, #1}}
+% Logic
+\def\bic{\Leftrightarrow}
+% Bold and italic
+\newcommand\boldit[1]{\textbf{\textit{#1}}}
+% Misc math
+\newcommand{\st}{\ensuremath{\ \mathrm{s.t.}\ }}
+\newcommand{\setntn}[2]{ \{ #1 : #2 \} }
+\newcommand{\cf}[1]{ \lstinline|#1| }
+\newcommand{\fore}{\therefore \quad}
+\newcommand{\tod}{\stackrel { d } {\to} }
+\newcommand{\tow}{\stackrel { w } {\to} }
+\newcommand{\toprob}{\stackrel { p } {\to} }
+\newcommand{\toms}{\stackrel { ms } {\to} }
+\newcommand{\eqdist}{\stackrel{d} {=} }
+\newcommand{\iidsim}{\stackrel{\textrm{ {\sc iid }}} {\sim} }
+\newcommand{\1}{\mathbbm 1}
+\newcommand{\dee}{\,{\rm d}}
+\newcommand{\given}{\, | \,}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+% Shortcut greek
+\def\a{\alpha}
+\def\b{\beta}
+\def\g{\gamma}
+\def\D{\Delta}
+\def\d{\delta}
+\def\z{\zeta}
+\def\k{\kappa}
+\def\l{\lambda}
+\def\n{\nu}
+\def\r{\rho}
+\def\s{\sigma}
+\def\t{\tau}
+\def\x{\xi}
+\def\w{\omega}
+\def\W{\Omega}
+% Nice greek
+\newcommand{\p}{\varphi}
+\newcommand{\e}{\varepsilon}
+
+% Shorcut vectors
+\def\vx{\vect{x}}
+\def\vy{\vect{y}}
+\def\va{\vect{a}}
+\def\vb{\vect{b}}
+
+\newcommand{\CC}{\mathbb C}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbbm P}
+\newcommand{\EE}{\mathbbm E}
+\newcommand{\TT}{\mathbbm T}
+\newcommand{\VV}{\mathbbm V}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\WW}{\mathbbm W}
+\newcommand{\ZZ}{\mathbbm Z}
+\renewcommand{\SS}{\mathbbm S}
+
+% Expectation/Probability
+\newcommand{\ee}[1]{\mathbbm{E}[{#1}]}
+\newcommand{\pp}[1]{\mathbbm{P}({#1})}
+
+\newcommand{\GG}{\mathsf G}
+\newcommand{\XX}{\mathsf X}
+\renewcommand{\AA}{\mathsf A}
+\newcommand{\YY}{\mathsf Y}
+\newcommand{\ZZZ}{\mathsf Z}
+
+\newcommand{\aA}{\mathscr A}
+\newcommand{\iI}{\mathscr I}
+\newcommand{\eE}{\mathscr E}
+\newcommand{\fF}{\mathscr F}
+\newcommand{\rR}{\mathscr R}
+\newcommand{\lL}{\mathscr L}
+\newcommand{\cG}{\mathscr G}
+
+\newcommand{\pP}{\mathcal P}
+\newcommand{\aAA}{\mathcal A}
+\newcommand{\vV}{\mathcal V}
+\newcommand{\mM}{\mathcal M}
+\newcommand{\oO}{\mathcal O}
+\newcommand{\gG}{\mathcal G}
+\newcommand{\hH}{\mathcal H}
+\newcommand{\tT}{\mathcal T}
+\newcommand{\bB}{\mathcal B}
+\newcommand{\zZ}{\mathcal Z}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\dD}{\mathcal D}
+\newcommand{\wW}{\mathcal W}
+\newcommand{\uU}{\mathcal U}
+\newcommand{\sS}{\mathcal S}
+
+% Common collections
+\def\cA{\col{A}}
+\def\cB{\col{B}}
+% \def\cC{\col{C}}
+\def\cT{\col{T}}
+\def\cU{\col{U}}
+
+% Common closures
+\def\clA{\closure{A}}
+\def\clB{\closure{B}}
+\def\clK{\closure{K}}
+
+% operators
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\determinant}{det}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\corr}{Corr}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\mse}{mse}
+\DeclareMathOperator{\se}{se}
+\DeclareMathOperator{\row}{row}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\range}{rng}
+\DeclareMathOperator{\kernel}{ker}
+\DeclareMathOperator{\dimension}{dim}
+\DeclareMathOperator{\bias}{bias}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\conv}{conv}
+
+% \end{extract*}
+
+\title{Problem set 1 - Week 3 - DSGE models}
+\author{Thomas Pellet}
+\begin{document}
+\maketitle
+
+
+
+\section*{Exercise 1}
+
+The Euler equation of the Brock-Mirman model is:
+\begin{equation}
+\frac{1}{e^{z_{t}} K_{t}^{\alpha}-K_{t+1}}=\beta E_{t}\left\{\frac{\alpha e^{z_{t+1}} K_{t+1}^{\alpha-1}}{e^{z_{t+1}} K_{t+1}^{\alpha}-K_{t+2}}\right\}
+\end{equation}
+
+We guess the policy function to be $ K_{t+1}=A e^{z_{t}} K_{t}^{\alpha} $ and replace $K_{t+2}$ in the Euler equation. We then have:
+
+\begin{align}
+\frac{1}{\frac{1}{A}K_{t+1}-K_{t+1}}&=\beta E_{t}\left\{\frac{\alpha e^{z_{t+1}} K_{t+1}^{\alpha-1}}{e^{z_{t+1}} K_{t+1}^{\alpha}-A e^{z_{t+1}} K_{t+1}^{\alpha}}\right\} \\
+\bic A^2 - (\b \a + 1) A - \b \a &= 0
+\end{align}
+
+The two solutions to this equation are ${\a \b, 1}$.
+
+\section*{Exercise 2}
+
+The functional forms of the utility and the production functions are given by:
+
+\begin{align} 
+u\left(c_{t}, \ell_{t}\right) &=\ln c_{t}+a \ln \left(1-\ell_{t}\right) \\ 
+F\left(K_{t}, L_{t}, z_{t}\right) &=e^{z_{t}} K_{t}^{\alpha} L_{t}^{1-\alpha} 
+\end{align}
+
+We can replace these in the baseline model to get the following seven equations:
+\begin{align}
+c_{t}&=(1-\tau)\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]+k_{t}+T_{t}-k_{t+1} \\
+\frac{1}{c_t}&=\beta E_{t}\left\{\frac{1}{c_{t+1}}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
+-\frac{a}{1-l_t}&=\frac{1}{c_t} w_{t}(1-\tau) \\
+r_{t}&=\a e^{z_{t}} K_{t}^{\alpha-1} L_{t}^{1-\alpha} \\
+w_{t}&=(1 - \a) e^{z_{t}} K_{t}^{\alpha} L_{t}^{-\alpha} \\
+\tau\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_{t}
+\end{align}
+
+We cannot use the same technic as in the first exercise because we know have consumption and leisure. The random term does not cancel out if we guess a functional form, making the integral impossible to solve analytically. 
+
+
+\section{Exercise 3}
+The functional forms are now 
+
+\begin{align} 
+u\left(c_{t}, \ell_{t}\right) &=\frac{c_{t}^{1-\gamma}-1}{1-\gamma}+a \ln \left(1-\ell_{t}\right) \\ 
+F\left(K_{t}, L_{t}, z_{t}\right) &=e^{z_{t}} K_{t}^{\alpha} L_{t}^{1-\alpha} \end{align}
+
+and the characterizing equations are now:
+
+\begin{align}
+c_{t}&=(1-\tau)\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]+k_{t}+T_{t}-k_{t+1} \\
+c_t^{-\g}&=\beta E_{t}\left\{c_{t+1}^{-\g}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
+-\frac{a}{1-l_t}&=c_t^{-\g} w_{t}(1-\tau) \\
+r_{t}&=\a e^{z_{t}} K_{t}^{\alpha-1} L_{t}^{1-\alpha} \\
+w_{t}&=(1 - \a) e^{z_{t}} K_{t}^{\alpha} L_{t}^{-\alpha} \\
+\tau\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_{t}
+\end{align}
+
+\section{Exercise 4}
+The functional forms are now 
+
+\begin{align} 
+ u\left(c_{t}, \ell_{t}\right) &=\frac{c_{t}^{1-\gamma}-1}{1-\gamma}+a \frac{\left(1-\ell_{t}\right)^{1-\xi}-1}{1-\xi} \\ F\left(K_{t}, L_{t}, z_{t}\right) &=e^{z_{t}}\left[\alpha K_{t}^{\eta}+(1-\alpha) L_{t}^{\eta}\right]^{\frac{1}{\eta}} 
+ \end{align}
+
+and the characterizing equations are now:
+
+\begin{align}
+c_{t}&=(1-\tau)\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]+k_{t}+T_{t}-k_{t+1} \\
+c_t^{-\g}&=\beta E_{t}\left\{c_{t+1}^{-\g}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
+\frac{a}{(1-\ell_t)^{\xi}}&=c_t^{-\g} w_{t}(1-\tau) \\
+r_{t}&=\a K_{t}^{\eta - 1} e^{z_{t}} \left[\alpha K_{t}^{\eta}+(1-\alpha) L_{t}^{\eta}\right]^{\frac{1}{\eta} - 1} \\
+w_{t}&=(1-\a) L_{t}^{\eta - 1} e^{z_{t}} \left[\alpha K_{t}^{\eta}+(1-\alpha) L_{t}^{\eta}\right]^{\frac{1}{\eta} - 1} \\
+\tau\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_{t}
+\end{align}
+
+
+\section{Exercise 5}
+The functional forms are now 
+
+\begin{align} 
+ u\left(c_{t}, \ell_{t}\right) &=\frac{c_{t}^{1-\gamma}-1}{1-\gamma} \\ 
+ F\left(K_{t}, L_{t}, z_{t}\right) &= K_{t}^{\alpha} \parens{e^{z_{t}} L_{t}}^{1-\alpha} 
+ \end{align}
+
+and the characterizing equations are now:
+
+\begin{align}
+c_{t}&=(1-\tau)\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]+k_{t}+T_{t}-k_{t+1} \\
+c_t^{-\g}&=\beta E_{t}\left\{c_{t+1}^{-\g}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
+1&=c_t^{-\g} w_{t}(1-\tau) \\
+r_{t}&=\a K_{t}^{\alpha - 1} \parens{e^{z_{t}}}^{1-\alpha} \\
+w_{t}&=(1-\a)K_{t}^{\alpha} e^{(1- \alpha) z_{t}} \\
+\tau\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_t \\
+z_{t}&=\left(1-\rho_{z}\right) \overline{z}+\rho_{z} z_{t-1}+
+\epsilon_{t}^{z}
+\end{align}
+
+
+Solving the model at the steady state, we have:
+
+\begin{align}
+c_{t}&=(1-\tau)\left[w_{t}+\left(r_{t}-\delta\right) k_{t}\right]+T_{t} \\
+1&=\beta \left\{\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
+1&=c_t^{-\g} w_{t}(1-\tau) \\
+r_{t}&=\a K_{t}^{\alpha - 1} \parens{e^{z_{t}}}^{1-\alpha} \\
+w_{t}&=(1-\a)K_{t}^{\alpha} e^{(1- \alpha) z_{t}} \\
+\tau\left[w_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_t \\
+z^{*}&=\overline{z}
+\end{align}
+
+Simplyfying, we get:
+
+\begin{align}
+c&= \parens{(1 - \t)(1-\a) \parens{\frac{1-\b}{\b (1 - \t) \a} + \d}^{\frac{1}{\a - 1}}}^{\frac{1}{\g}} \\
+r&= \frac{1-\b}{\b (1 - \t)} + \d \\
+w&=(1-\a)\parens{\frac{1-\b}{\b (1 - \t) \a} + \d}^{\frac{1}{\a - 1}} \\
+k&=\parens{\frac{1-\b}{\b (1 - \t) \a} + \d}^{\frac{1}{\a - 1}} \\
+T &=\tau\left[w+\left(r-\delta\right) k\right]\\
+z&=\overline{z}
+\end{align}
+
+\section{Exercise 6}
+
+The functional forms are now 
+
+\begin{align} 
+ u\left(c_{t}, \ell_{t}\right) &=\frac{c_{t}^{1-\gamma}-1}{1-\gamma}+a \frac{\left(1-\ell_{t}\right)^{1-\xi}-1}{1-\xi} \\ 
+  F\left(K_{t}, L_{t}, z_{t}\right) &= K_{t}^{\alpha} \parens{e^{z_{t}} L_{t}}^{1-\alpha} 
+ \end{align}
+and the characterizing equations are now:
+
+\begin{align}
+c_{t}&=(1-\tau)\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]+k_{t}+T_{t}-k_{t+1} \\
+c_t^{-\g}&=\beta E_{t}\left\{c_{t+1}^{-\g}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
+\frac{a}{(1-\ell_t)^{\xi}}&=c_t^{-\g} w_{t}(1-\tau) \\
+r_{t}&=\a K_{t}^{\alpha - 1} e^{(1-\alpha)z_{t}}L_t^{1-\a}\\
+w_{t}&=(1-\a)K_{t}^{\alpha} e^{(1- \alpha) z_{t}}L_t^{1-\a} \\
+\tau\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_t
+\end{align}
+
+Solving for the steady state, we get the following equations:
+
+\begin{align}
+c&=(1-\tau)\left[w \ell+\left(r-\delta\right) k\right]+T \\
+1&=\beta E\left\{\left[\left(r-\delta\right)(1-\tau)+1\right]\right\} \\
+\frac{a}{(1-\ell)^{\xi}}&=c^{-\g} w(1-\tau) \\
+r&=\a K^{\alpha - 1} e^{(1-\alpha)z}L^{1-\a}\\
+w&=(1-\a)K^{\alpha} e^{(1- \alpha) z}L^{1-\a} \\
+\tau\left[w \ell+\left(r-\delta\right) k\right]&=T
+\end{align}
+
+
+and therefore:
+
+\begin{align}
+c&=w \ell+ (r-\delta) k \\
+r&= \frac{1-\b}{\b (1 - \t)} + \d \\
+r&=\a K^{\alpha - 1} e^{(1-\alpha)z}L^{1-\a}\\
+K &= \frac{\a w}{(1-\a)r}\\
+c &= \parens{-\frac{w}{a}(1-\ell)^{-\xi}(1-\tau)}^{\frac{1}{\g}}
+\end{align}
+
+
+
+
+
+
+
+
+
+\newpage
+
+
+\begin{equation}
+	\floor{\squares{\inv{\parens{\parens{\frac{1}{2}} \begin{bmatrix} 3 & 4 \\ 4 & 5\end{bmatrix} }}}}
+\end{equation}
+
+\improvement[inline]{Unfinished.}
+
+\begin{theorem}[Test Theorem]
+	Hello.
+\end{theorem}
+
+\begin{definition}[Test Definition]
+	Hello.
+\end{definition}
+
+\begin{example}[Test Examples]
+	My examples are pink-ish.
+\end{example}
+
+\begin{equation}
+	\ee{X_{i,j}} \in \RR \quad \pp{X_{i,j}} \in \RR
+\end{equation}
+
+\change[inline]{Better math.}
+
+\unsure[inline]{Rebekah is amazing!!!!!!}
+% \improvement{Fix this}
+
+\begin{equation}
+\sum_{n=1}^{N} \sum_{t=1}^{T} \sum_{j=1}^{J} d_{n j t}\left\{\log \left[p_{j t}\left(x_{n t}\right)\right]+\sum_{x=1}^{X} /\left\{x_{n, t+1}=x\right\} \log \left[f_{j t}\left(x | x_{n t}\right)\right]\right\}
+\end{equation}
+
+\begin{eresults}
+test
+\end{eresults}
+
+$\intsfin{5} \toprob{5} \vx \cA$
+
+% $\Set{\frac{1}{2}}$
+
+\newpage 
+\listoftodos
+
+\end{document}
