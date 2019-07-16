@@ -459,12 +459,12 @@ z_{t}&=\left(1-\rho_{z}\right) \overline{z}+\rho_{z} z_{t-1}+
 Solving the model at the steady state, we have:
 
 \begin{align}
-c_{t}&=(1-\tau)\left[w_{t}+\left(r_{t}-\delta\right) k_{t}\right]+T_{t} \\
-1&=\beta \left\{\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
-1&=c_t^{-\g} w_{t}(1-\tau) \\
-r_{t}&=\a K_{t}^{\alpha - 1} \parens{e^{z_{t}}}^{1-\alpha} \\
-w_{t}&=(1-\a)K_{t}^{\alpha} e^{(1- \alpha) z_{t}} \\
-\tau\left[w_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_t \\
+c&=(1-\tau)\left[w+\left(r-\delta\right) k\right]+T \\
+1&=\beta \left\{\left[\left(r-\delta\right)(1-\tau)+1\right]\right\} \\
+1&=c_t^{-\g} w(1-\tau) \\
+r&=\a K^{\alpha - 1} \parens{e^{z}}^{1-\alpha} \\
+w&=(1-\a)K^{\alpha} e^{(1- \alpha) z} \\
+\tau\left[w+\left(r-\delta\right) k\right]&=T_t \\
 z^{*}&=\overline{z}
 \end{align}
 
@@ -519,6 +519,41 @@ r&=\a K^{\alpha - 1} e^{(1-\alpha)z}L^{1-\a}\\
 K &= \frac{\a w}{(1-\a)r}\\
 c &= \parens{-\frac{w}{a}(1-\ell)^{-\xi}(1-\tau)}^{\frac{1}{\g}}
 \end{align}
+
+
+\section*{Exercise 7}
+The model is now defined by:
+\begin{align*}
+\overline{c}&=(1-\tau)[\overline{w} \overline{\ell}+(\overline{r}-\delta) \overline{k}]+\overline{T} \\ 
+u_{c}(\overline{c}, \overline{\ell})&=\beta E_{t}\left\{u_{c}(\overline{c}, \overline{\ell})[(\overline{r}-\delta)(1-\tau)+1]\right\} \\ 
+-u_{\ell}(\overline{c}, \overline{\ell})&=u_{c}(\overline{c}, \overline{\ell}) \overline{w}(1-\tau) \\ 
+\overline{r}&=f_{K}(\overline{k}, \overline{\ell}, \overline{z}) \\ 
+\overline{w}&=f_{L}(\overline{k}, \overline{\ell}, \overline{z}) \\ 
+\tau[\overline{w} \overline{\ell}+(\overline{r}-\delta) \overline{k}]&=\overline{T}
+\end{align*}
+
+For the numerical differentiation, we need to express every variable as a function of the parameters and other variables of the system:
+
+\begin{align*}
+\overline{k} &= \parens{\frac{\overline{r}}{\a} e^{(1-\alpha)z}L^{\a-1}}^{\frac{1}{\alpha - 1}} \\
+\overline{\ell} &= 1 - \parens{\frac{\overline{c}^{\g}}{\overline{w}(1-\tau)}}^{\frac{1}{\xi}}  \\
+\overline{y} &= F(\overline{k},\overline{l},\overline{z}) \\
+\overline{w}&=f_{L}(\overline{k}, \overline{\ell}, \overline{z}) \\
+\overline{r}&= \frac{1-\b}{\b (1 - \t)} + \d \\ 
+\overline{T}&=\tau[\overline{w} \overline{\ell}+(\overline{r}-\delta) \overline{k}] \\
+\overline{c}&=(1-\tau)[\overline{w} \overline{\ell}+(\overline{r}-\delta) \overline{k}]+\overline{T}
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
