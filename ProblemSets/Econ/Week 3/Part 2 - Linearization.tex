@@ -1,4 +1,4 @@
- \documentclass[11pt]{article}
+\documentclass[11pt]{article}
 
 % Extract
 % \usepackage[active,
@@ -98,7 +98,7 @@
 % So pages will break inside long equation environments
 \allowdisplaybreaks
 % Font
-%\usepackage{mathpazo} 
+\usepackage{mathpazo} 
 \linespread{1.05}  
 %\usepackage{courier}
 % Geometry
@@ -152,15 +152,6 @@
 \newtheorem*{model}{Model}
 \newtheorem*{tresults}{Theoretical Results}
 \newtheorem*{eresults}{Empirical Results}
-
-% % Framed theorems below (need to redefine each environment)
-
-% \usepackage{mdframed}
-
-% % Example
-% \newmdtheoremenv{theorem}{\color{ForestGreen}{\textbf{Theorem}}}[section]
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -352,146 +343,152 @@
 
 % \end{extract*}
 
-\title{Measure Theory - Problem set 1 - Week 3 }
-\author{Thomas Pellet}
+
+% \end{extract*}
+
+\title{Problem Set Econ - Week 3 - DSGE models}
+\author{Jeanne Sorin}
 \begin{document}
 \maketitle
 
 
 
-\section{Measure Spaces}
-
-\subsection*{Exercise 1.3}
-
-$\mathcal{G}_{1}=\{A : A \subset \mathbb{R}, A \text { open }\}$ is the set of open sets. It therefore includes the empty set and its complement $\RR$ which are both open. The complements of open sets are open. $\mathcal{G}_{1}$ is therefore closed under complement. Union of open sets are also open. This set is therefore an algebra. Countable unions of open sets are also open. $\mathcal{G}_{1}$ is therefore a $\s$-algebra. \\
-$\mathcal{G}_{2}=\{A : A \text { is a finite union of intervals of the form }(\mathrm{a}, \mathrm{b}],(-\infty, \mathrm{b}], \text { and }(\mathrm{a}, \infty)\}$ is an algebra because it includes the empty set for $a=b$, includes complements of intervals and by construction includes finite unions of intervals. It is not a $\s$-algebra because it does not include countable unions. \\
-
-$\mathcal{G}_{2}=\{A : A \text { is a countable union of intervals of the form }(\mathrm{a}, \mathrm{b}],(-\infty, \mathrm{b}], \text { and }(\mathrm{a}, \infty)\}$ is an algebra because it includes the empty set for $a=b$, includes complements of intervals and by construction includes finite unions of intervals. It is a $\s$-algebra because it does include countable unions.
-
-\subsection*{Exercise 1.7}
-Suppose $\exists B$ a $\sigma$-algebra in X such that $B \nss \pP(X)$. Then $\exists$ $A \in B \st A \notin \pP(X)$. \\
-$\therefore A \notin X$, contradiction. \\
-
-Suppose $\exists / S$ a $\sigma$-algebra in X such that $\{\emptyset ,X\}$ $\nss S$. If the empty set is not in S we have a contradiction. If $X\notin S$ Then $\emptyset^c \notin S$ and we have another contradiction.
-
-\subsection*{Exercise 1.10}
-
-Let $\braces{S_\a}$ be a family of $\s$-algebras on X. The empty set is included in all $S_\a$ and is therefore part of the intersection. 
-Let $A \in \cap S_\a$, A is in all the elements of the family $\braces{S_\a}$. It is therefore closed under countable union and complement in each $S_\a$, which are therefore part of their intersection. 
-
-\subsection*{Exercise 1.22}
-
-\begin{itemize}
-	\item monotonicity $ \mu (B) = \mu (A \cup A^c\cap B) = \mu (A) + \mu (A^c\cap B) \geq \mu (A) $
-	\item subadditivity: For n = 2
-
-\end{itemize}
-\begin{align}
-\mu (A_1) + \mu (A_2) &= \mu(A_1 \setminus A_2) + \mu(A_2 \setminus A_1) + 2 \mu(A_1 \cap A_2) \\
-\mu \parens{\cup A_i} &= \mu(A_1 \setminus A_2) + \mu(A_2 \setminus A_1) + \mu(A_1 \cap A_2) \\
-\imp \mu \parens{\cup^2_1 A_i} &\leq \mu (A_1) + \mu (A_2)
-\end{align}
-By iteration, one can prove that it is true for a countable union of sets.
-
-\subsection*{Exercise 1.23}
-
-Let $A,B \ \in \ S $ such that $\l (A) = \mu(A\cap B)$
-\begin{itemize}
-	\item $\l (\emptyset) = \mu( \emptyset \cap B) = 0 $
-	\item Let $\braces{A_i}$ be a family of disjoint sets in S: 
-	\begin{align*}
-	\l (\cup^\infty_1 A_i) &= \mu( \parens{\cup^\infty_1 A_i} \cap B) \\
-						   &= \mu(\cup^\infty_1 A_i \cap B)\\
-						   &= \sum^\infty_1 \mu(A_i \cap B) \\
-						   &= \sum^\infty_1 \l(A_i)
-	\end{align*}
-	
-\end{itemize}
-
-\subsection*{Exercise 1.26}
-	\begin{align*}
-	\mu (\cap^\infty_{i=1} A_i) &= \mu \parens{\parens{\cup^\infty_1 A^c_i}^c} \\
-						   &=  \mu (X) - \mu \parens{\cup^\infty_1 A^c_i}\\
-						   &= \mu (X) - \lim_{n \to \infty} \mu \parens{A^c_n} \quad \text{using} \ i) \\
-						   &= \mu (X) - \mu (X) +\lim_{n \to \infty} \mu \parens{A_n} \\
-						   &=  \lim_{n \to \infty} \mu \parens{A_n}
-	\end{align*}
-
-
-\section*{Lebesgue Measure}
-\subsection*{Exercise 2.10}
-\begin{align}
-\mu \parens{B} = \mu \parens{B \cap E \cup B \cap E^c} \leq \mu \parens{B \cap E} + \parens{B \cap E^c} \quad \text{by subadditivity. Equality holds}
-\end{align}
-
-\subsection*{2.14}
-
-Using Cathéodory extension, we need to prove that $\bB (\RR) = \s (\oO) = \s (\AA)$
-
-\section*{Measurable functions}
-
-\subsection*{Exercise 3.1}
-Let $\braces{x} \ss \RR$  be a singleton set. It is therefore a countable set. Suppose that $\exists \ \e$ such that $\mu (x) > \e $ with $\mu$ the Lebesgue measure. 
-By construction:
-$\braces{x} \ss \squares{x - \frac{\e}{2}, x + \frac{\e}{2}}$. Using subadditivity we have that :
-
-\begin{align}
-\mu (x) &\leq \mu \parens{\squares{x - \frac{\e}{2}, x + \frac{\e}{2}}}
-		& \leq \e
-\end{align}
-
-This is a contradiction. Therefore, the measure of a singleton set is zero and by the countable sets are measure zero as union of singleton sets. 
-
-\subsection*{Exercise 3.7}
-Suppose $f: X \to \RR$ is measurable and define $g(x) = - f(x)$.
-
-For any a in $\RR$ We have that $\braces{x \in X : f(x) <a}$ is measurable. This is equivalent to  $\braces{x \in X : -g(x) <a}= \braces{x \in X : -g(x) >a}$ being measurable. \\
-Statements with non-strict equalities hold because $\mM$ is a $\s$-algebra so that $f^{-1} ((-\infty,a)) = f^{-1} ([a,\infty))$ is also in $\mM$ and therefore also measurable. Hence, $\mM$ contains closed sets and for any a $\braces{x \in X : -g(x) \leq a}$ is measurable. 
-
-
-\newpage
-
-
+\section*{Exercise 1}
+In the Brock-Mirman model, there is only one equation, as there is no labor-leisure choice. The one Euler Equation (EE) is:
 \begin{equation}
-	\floor{\squares{\inv{\parens{\parens{\frac{1}{2}} \begin{bmatrix} 3 & 4 \\ 4 & 5\end{bmatrix} }}}}
+\frac{1}{e^{z_{t}} K_{t}^{\alpha}-K_{t+1}}=\beta E_{t}\left\{\frac{\alpha e^{z_{t+1}} K_{t+1}^{\alpha-1}}{e^{z_{t+1}} K_{t+1}^{\alpha}-K_{t+2}}\right\}
 \end{equation}
 
-\improvement[inline]{Unfinished.}
-
-\begin{theorem}[Test Theorem]
-	Hello.
-\end{theorem}
-
-\begin{definition}[Test Definition]
-	Hello.
-\end{definition}
-
-\begin{example}[Test Examples]
-	My examples are pink-ish.
-\end{example}
+This time we want to rewrite the equation as the $\Gamma$ function (using Uhlig's notation) to analytically find the values of the matrices F, G, H, L, M, N and consequently P and Q.
+\\
+\\
+To do so we rewrite the above equation:
 
 \begin{equation}
-	\ee{X_{i,j}} \in \RR \quad \pp{X_{i,j}} \in \RR
+	E_t \left\{\b \frac{ \a e^{z_{t+1}} K_{t+1}^{\a - 1} (e^{z_t} K_t ^\a -K_{t+1})}{e^{z_{t+1}}K_{t+1}^{\a} - K_{t+2}} -1 \right\}= 0
 \end{equation}
 
-\change[inline]{Better math.}
+This is equivalent to :
+\begin{equation}
+	E_t \left\{\Gamma (X_{t+1}, X_t, X_{t-1}, Z_{t+1}, Z_t) \right\} = 0
+\end{equation}
+With $X_{t+1} = K_{t+1}$, $X_{t} = K_{t}$, $X_{t-1} = K_{t-1}$, $Z_{t+1} = Z_{t+1}$, $Z_{t} = Z_{t}$ and our $\Gamma$ function having only 1 dimension.
+\\
+\\
+We differentiate $\Gamma$ wrt all parameters, then evaluate them at the steady state for z == 0. \\
+For F:
+\begin{align}
+	\frac{d\Gamma}{d X_{t+1}} &= \frac{d\Gamma}{d K_{t+2}} = E \left\{\b \frac{\a e^{z_{t+1}} K_{t+1}^{\a - 1} (e^{z_t} K_t ^\a -K_{t+1})}{(e^{z_{t+1}}K_{t+1}^{\a} - K_{t+2})^2}
+	\right\} \\
+	\frac{d\Gamma}{d X} &= \left\{\b \frac{\a K^{\a - 1} (K ^\a -K)}{(K^{\a} - K)^2}
+	\right\} \\
+	F &=  \left\{\b \frac{\a K^{\a - 1}}{K_\a. K} \right\}
+\end{align}
 
-\unsure[inline]{Rebekah is amazing!!!!!!}
-% \improvement{Fix this}
+For G (evaluated at the steady state):
+\begin{align}
+	\frac{d\Gamma}{d X_{t}} &= \frac{\b (\a K^{\a-1})((\a -1)K^{\a - 1}-\a)(K^\a - K) - \a K^{\a -1} (K^\a - 1)}{(K^\a-K)^2} \\
+	\frac{d\Gamma}{d X_{t}} &= \frac{\b (\a K^{\a-1})(K^\a - K)(-K^{\a-1} - \a)}{K^\a - 1)}{(K^\a-K)^2}\\
+	\frac{ d\Gamma}{d X_{t}} &= \frac{\b (\a K^{\a-1})(-K^{\a-1} - \a)}{K^\a - 1)}{(K^\a-K)}\\
+	G &= -\frac{\b (\a K_{\a-1})(K^{\a-1} + \a)}{K^\a - 1)}{(K^\a-K)}
+\end{align}
+
+For H (evaluated at the steady state):
+\begin{align}
+	\frac{d\Gamma}{d X_{t-1}} &= \frac{\b \a K^{\a-1}\a K^{\a-1}}{K^\a - K}\\
+	\frac{d\Gamma}{d X_{t-1}} &= \frac{\b \a^2 K^{2(\a-1)}}{K^\a - K}\\
+	H &= \frac{\b \a^2 K^{2(\a-1)}}{K^\a - K}\\
+\end{align}
+
+For L (evaluated at the steady state):
+\begin{align}
+	\frac{d\Gamma}{d Z_{t+1}} &= L = - \frac{\b \a K^{2(\a-1)}}{K^\a - K}\\
+\end{align}
+
+For M (evaluated at the steady state):
+\begin{align}
+	\frac{d\Gamma}{d Z_{t}} &= M = - \frac{\b \a^2 K{2(\a-1)}}{K^\a - K}\\
+\end{align}
+
+Moreover, we have
+\begin{align}
+GP^2 + GP + H = 0 \\
+FQN + (FP + G) Q + (LN + M) = 0
+\end{align}
+Rearranging (see exercise 3 for details)
+\begin{align}
+H &= \frac{\a^2 K^{2(\a-1)}}{K^\a - K}\\
+P &= \frac{-G +/- (G^2 - 4FH)^{0.5}}{2F}\\
+Q &= - \frac{LN + M}{FN + FP + G}
+\end{align}
+
+\noindent Fitting in our calibrated parameter values from the DSGE lecture: $\b=.98$, $\a=.40$, $z=0$, and having :
+\begin{align}
+F &=  \left\{- \frac{\a K^{\a - 1}}{K_\a. K} \right\}\\
+G &= -\frac{(\a K_{\a-1})(K^{\a-1} + \a)}{K^\a - 1)}{(K^\a-K)}\\
+H &= \frac{\a^2 K^{2(\a-1)}}{K^\a - K}\\
+L &= - \frac{\a K_{2(\a-1)}}{K^\a - K}\\
+M &= - \frac{\a^2 K_{2(\a-1)}}{K^\a - K}\\
+P &= \frac{-G \pm (G^2 - 4FH)^{0.5}}{2F}\\
+Q &= - \frac{LN + M}{FN + FP + G}
+\end{align}
+becomes
+\begin{align}
+F &=  \left\{-\frac{.40 K^{-0.60}}{K_{.40}. K} \right\}\\
+G &= -\frac{(\a K_{-0.60})(K^{-0.60} + 0.40)}{K^{.40} - 1)}{(K^{.40}-K)}\\
+H &= \frac{0.40^2 K^{-1.2}}{K^({0.40}) - K}\\
+L &= - \frac{\a K_{-1.2}}{K^{.40} - K}\\
+M &= - \frac{\a^2 K_{-1.2}}{K^{.40} - K}\\
+Solve P Q
+\end{align}
+
+See Notebook for more the values of P \& Q
+
+\section*{Exercise 2}
+
+Now we redo the exercise with $k = \ln(K)$. Using the previous equations, we can replace $K$ by $e^k$ and take the logarithm of the gamma equation to get:
 
 \begin{equation}
-\sum_{n=1}^{N} \sum_{t=1}^{T} \sum_{j=1}^{J} d_{n j t}\left\{\log \left[p_{j t}\left(x_{n t}\right)\right]+\sum_{x=1}^{X} /\left\{x_{n, t+1}=x\right\} \log \left[f_{j t}\left(x | x_{n t}\right)\right]\right\}
+	\ln \parens{E_t \left\{\b \frac{ \a e^{z_{t+1} + (\a - 1)k_{t+1}} ( e^{z_t + \a k_t} - e^{ k_{t+1}})}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \right\}} = 0 
 \end{equation}
 
-\begin{eresults}
-test
-\end{eresults}
+\begin{equation}
+\ln \b +  \ln \parens{\a e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - \a e^{z_{t+1} + \a k_{t+1}}} - \ln \parens{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} = 0
+\end{equation}
 
-$\intsfin{5} \toprob{5} \vx \cA$
 
-% $\Set{\frac{1}{2}}$
+We then have the following equations:
 
-\newpage 
-\listoftodos
+\begin{align*}
+F &=  \frac{e^{z_{t+1}}}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \\
+G &= \frac{(\a -1)  e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - \a e^{z_{t+1} + \a k_{t+1}}}{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - e^{z_{t+1} + \a k_{t+1}}} - \frac{\a e^{z_{t+1} + \a k_{t+1}}}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \\
+H &= \frac{\a  e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t}}{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - e^{z_{t+1} + \a k_{t+1}}} \\
+L &= 1 -  \frac{e^{z_{t+1} + \a k_{t+1}}}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \\
+M &=  \frac{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t}}{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} -  e^{z_{t+1} + \a k_{t+1}}} \\
+P &= \frac{-G \pm (G^2 - 4FH)^{\frac{1}{2}}}{2F} \\
+Q &= - \frac{LN + M}{FN + FP + G}
+\end{align*}
+
+
+
+% \listoftodos
+
+\section*{Exercise 3}
+
+\begin{align}
+E_{t}\left\{F \tilde{X}_{t+1}+G \tilde{X}_{t}+H \tilde{X}_{t-1}+L \tilde{Z}_{t+1}+M \tilde{Z}_{t}\right\} &= 0\\
+E_{t}\left\{F \parens{P \tilde{X}_t + Q \tilde{Z}_{t+1}} +G \parens{P \tilde{X}_{t-1} + Q \tilde{Z}_t}+H \tilde{X}_{t-1}+L \tilde{Z}_{t+1}+M \tilde{Z}_{t}\right\} &= 0 \\
+F \squares{P \parens{P \tilde{X}_{t-1} + Q \tilde{Z}_t} + Q N \tilde{Z}_{t}} +G \parens{P \tilde{X}_{t-1} + Q \tilde{Z}_t}+H \tilde{X}_{t-1}+L \tilde{Z}_{t+1}+M \tilde{Z}_{t} &= 0 \\
+[(F P+G) P+H] \tilde{X}_{t-1}+[(F Q+L) N+(F P+G) Q+M] \tilde{Z}_{t}&=0
+\end{align}
+
+
+%\listoftodos 
+%\begin{align}
+%E_{t}\left\{F \tilde{X}_{t+1}} &= F(P \tilde{X}_{t} + Q \tilde{Z}_{t+1}) \right\}\\
+%E_{t}\left\{F \tilde{X}_{t+1}} &= F P^2 \tilde{X}_{t-1} + FPQ\tilde{Z}_{t} + FQN \tilde{Z}_{t} \right\}\\
+%\end{align}
+
+
 
 \end{document}
