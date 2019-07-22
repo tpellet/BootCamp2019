@@ -57,7 +57,7 @@ def LinApp_SSL(X0, Z, XYbar, logX, PP, QQ, RR, SS):
     X0 = array(X0)
 
     # get values for nx, ny, nz and nobs
-    nobs = 250
+    nobs,nz = Z.shape
     nx = X0.shape[0]
     nxy = XYbar.shape[0]
     ny = nxy - nx

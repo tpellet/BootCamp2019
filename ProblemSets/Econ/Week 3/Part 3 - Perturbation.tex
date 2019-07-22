@@ -346,178 +346,34 @@
 
 % \end{extract*}
 
-\title{Problem Set Econ - Week 3 - DSGE models}
+\title{Problem Set Econ - Week 3 - DSGE models - Perturbation Methods}
 \author{Jeanne Sorin \& Thomas Pellet}
 \begin{document}
 \maketitle
 
 
-
 \section*{Exercise 1}
-In the Brock-Mirman model, there is only one equation, as there is no labor-leisure choice. The one Euler Equation (EE) is:
+
+
+From equation 5 (reading):
 \begin{equation}
-\frac{1}{e^{z_{t}} K_{t}^{\alpha}-K_{t+1}}=\beta E_{t}\left\{\frac{\alpha e^{z_{t+1}} K_{t+1}^{\alpha-1}}{e^{z_{t+1}} K_{t+1}^{\alpha}-K_{t+2}}\right\}
+  \begin{aligned} & F_{x x}\{x(u), u\} x_{u}(u) x_{u}(u)+F_{x u}\{x(u), u\} x_{u}(u) \\+& F_{x}\{x(u), u\} x_{u u}(u)+F_{x u}\{x(u), u\} x_{u}(u) \\+& F_{u u}\{x(u), u\}=0 \end{aligned}
 \end{equation}
 
-This time we want to rewrite the equation as the $\Gamma$ function (using Uhlig's notation) to analytically find the values of the matrices F, G, H, L, M, N and consequently P and Q.
-\\
-\\
-To do so we rewrite the above equation:
+Taking the First Order Conditions with respect to U:
 
 \begin{equation}
-	E_t \left\{\b \frac{ \a e^{z_{t+1}} K_{t+1}^{\a - 1} (e^{z_t} K_t ^\a -K_{t+1})}{e^{z_{t+1}}K_{t+1}^{\a} - K_{t+2}} -1 \right\}= 0
-\end{equation}
+  \begin{aligned} & F_{x x x}\{x(u), u\} x_{u}(u)^3+3
+    (F_{x x u}\{x(u), u\}x_{u}(u)^2
+    \\+& F_{u u x}\{x(u), u\}x_{u}(u) + (F_{x u}\{x(u), u\}x_{u u}(u)
+    \\+& F_{x x}\{x(u), u\}x_{u}(u)x_{u u}(u)) + F_{x}\{x(u), u\}x_{u u u}(u)
+    \\+& F_{u u u}\{x(u), u\}= 0\end{aligned}
+  \end{equation}
 
-This is equivalent to :
-\begin{equation}
-	E_t \left\{\Gamma (X_{t+1}, X_t, X_{t-1}, Z_{t+1}, Z_t) \right\} = 0
-\end{equation}
-With $X_{t+1} = K_{t+1}$, $X_{t} = K_{t}$, $X_{t-1} = K_{t-1}$, $Z_{t+1} = Z_{t+1}$, $Z_{t} = Z_{t}$ and our $\Gamma$ function having only 1 dimension.
-\\
-\\
-We differentiate $\Gamma$ wrt all parameters, then evaluate them at the steady state for z == 0. \\
-For F:
-\begin{align}
-	\frac{d\Gamma}{d X_{t+1}} &= \frac{d\Gamma}{d K_{t+2}} = E \left\{\b \frac{\a e^{z_{t+1}} K_{t+1}^{\a - 1} (e^{z_t} K_t ^\a -K_{t+1})}{(e^{z_{t+1}}K_{t+1}^{\a} - K_{t+2})^2}
-	\right\} \\
-	\frac{d\Gamma}{d X} &= \left\{\b \frac{\a K^{\a - 1} (K ^\a -K)}{(K^{\a} - K)^2}
-	\right\} \\
-	F &=  \left\{\b \frac{\a K^{\a - 1}}{K_\a. K} \right\}
-\end{align}
-
-For G (evaluated at the steady state):
-\begin{align}
-	\frac{d\Gamma}{d X_{t}} &= \frac{\b (\a K^{\a-1})((\a -1)K^{\a - 1}-\a)(K^\a - K) - \a K^{\a -1} (K^\a - 1)}{(K^\a-K)^2} \\
-	\frac{d\Gamma}{d X_{t}} &= \frac{\b (\a K^{\a-1})(K^\a - K)(-K^{\a-1} - \a)}{K^\a - 1)}{(K^\a-K)^2}\\
-	\frac{ d\Gamma}{d X_{t}} &= \frac{\b (\a K^{\a-1})(-K^{\a-1} - \a)}{K^\a - 1)}{(K^\a-K)}\\
-	G &= -\frac{\b (\a K_{\a-1})(K^{\a-1} + \a)}{K^\a - 1)}{(K^\a-K)}
-\end{align}
-
-For H (evaluated at the steady state):
-\begin{align}
-	\frac{d\Gamma}{d X_{t-1}} &= \frac{\b \a K^{\a-1}\a K^{\a-1}}{K^\a - K}\\
-	\frac{d\Gamma}{d X_{t-1}} &= \frac{\b \a^2 K^{2(\a-1)}}{K^\a - K}\\
-	H &= \frac{\b \a^2 K^{2(\a-1)}}{K^\a - K}\\
-\end{align}
-
-For L (evaluated at the steady state):
-\begin{align}
-	\frac{d\Gamma}{d Z_{t+1}} &= L = - \frac{\b \a K^{2(\a-1)}}{K^\a - K}\\
-\end{align}
-
-For M (evaluated at the steady state):
-\begin{align}
-	\frac{d\Gamma}{d Z_{t}} &= M = - \frac{\b \a^2 K{2(\a-1)}}{K^\a - K}\\
-\end{align}
-
-Moreover, we have
-\begin{align}
-GP^2 + GP + H = 0 \\
-FQN + (FP + G) Q + (LN + M) = 0
-\end{align}
-Rearranging (see exercise 3 for details)
-\begin{align}
-H &= \frac{\a^2 K^{2(\a-1)}}{K^\a - K}\\
-P &= \frac{-G +/- (G^2 - 4FH)^{0.5}}{2F}\\
-Q &= - \frac{LN + M}{FN + FP + G}
-\end{align}
-
-\noindent Fitting in our calibrated parameter values from the DSGE lecture: $\b=.98$, $\a=.40$, $z=0$, and having :
-\begin{align}
-F &=  \left\{- \frac{\a K^{\a - 1}}{K_\a. K} \right\}\\
-G &= -\frac{(\a K_{\a-1})(K^{\a-1} + \a)}{K^\a - 1)}{(K^\a-K)}\\
-H &= \frac{\a^2 K^{2(\a-1)}}{K^\a - K}\\
-L &= - \frac{\a K_{2(\a-1)}}{K^\a - K}\\
-M &= - \frac{\a^2 K_{2(\a-1)}}{K^\a - K}\\
-P &= \frac{-G \pm (G^2 - 4FH)^{0.5}}{2F}\\
-Q &= - \frac{LN + M}{FN + FP + G}
-\end{align}
-becomes
-\begin{align}
-F &=  \left\{-\frac{.40 K^{-0.60}}{K_{.40}. K} \right\}\\
-G &= -\frac{(\a K_{-0.60})(K^{-0.60} + 0.40)}{K^{.40} - 1)}{(K^{.40}-K)}\\
-H &= \frac{0.40^2 K^{-1.2}}{K^({0.40}) - K}\\
-L &= - \frac{\a K_{-1.2}}{K^{.40} - K}\\
-M &= - \frac{\a^2 K_{-1.2}}{K^{.40} - K}\\
-Solve P Q
-\end{align}
-
-See Notebook for more the values of P \& Q
-
-\section*{Exercise 2}
-
-Now we redo the exercise with $k = \ln(K)$. Using the previous equations, we can replace $K$ by $e^k$ and take the logarithm of the gamma equation to get:
+Rearranging:
 
 \begin{equation}
-	\ln \parens{E_t \left\{\b \frac{ \a e^{z_{t+1} + (\a - 1)k_{t+1}} ( e^{z_t + \a k_t} - e^{ k_{t+1}})}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \right\}} = 0 
+  x_{u u u}=-\frac{F_{x x x} x_{u}^{3}+3\left(F_{x x u} x_{u}^{2}+F_{u u x} x_{u}+F_{x u} x_{u u}+F_{x x} x_{u} x_{u u}\right)+F_{u u u}}{F_{x}}
 \end{equation}
-
-\begin{equation}
-\ln \b +  \ln \parens{\a e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - \a e^{z_{t+1} + \a k_{t+1}}} - \ln \parens{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} = 0
-\end{equation}
-
-
-We then have the following equations:
-
-\begin{align*}
-F &=  \frac{e^{z_{t+1}}}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \\
-G &= \frac{(\a -1)  e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - \a e^{z_{t+1} + \a k_{t+1}}}{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - e^{z_{t+1} + \a k_{t+1}}} - \frac{\a e^{z_{t+1} + \a k_{t+1}}}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \\
-H &= \frac{\a  e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t}}{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} - e^{z_{t+1} + \a k_{t+1}}} \\
-L &= 1 -  \frac{e^{z_{t+1} + \a k_{t+1}}}{e^{z_{t+1} + \a k_{t+1}} - e^{k_{t+2}}} \\
-M &=  \frac{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t}}{ e^{z_{t+1} + (\a - 1)k_{t+1} + z_t + \a k_t} -  e^{z_{t+1} + \a k_{t+1}}} \\
-P &= \frac{-G \pm (G^2 - 4FH)^{\frac{1}{2}}}{2F} \\
-Q &= - \frac{LN + M}{FN + FP + G}
-\end{align*}
-
-
-
-% \listoftodos
-
-\section*{Exercise 3}
-
-\begin{align}
-E_{t}\left\{F \tilde{X}_{t+1}+G \tilde{X}_{t}+H \tilde{X}_{t-1}+L \tilde{Z}_{t+1}+M \tilde{Z}_{t}\right\} &= 0\\
-E_{t}\left\{F \parens{P \tilde{X}_t + Q \tilde{Z}_{t+1}} +G \parens{P \tilde{X}_{t-1} + Q \tilde{Z}_t}+H \tilde{X}_{t-1}+L \tilde{Z}_{t+1}+M \tilde{Z}_{t}\right\} &= 0 \\
-F \squares{P \parens{P \tilde{X}_{t-1} + Q \tilde{Z}_t} + Q N \tilde{Z}_{t}} +G \parens{P \tilde{X}_{t-1} + Q \tilde{Z}_t}+H \tilde{X}_{t-1}+L \tilde{Z}_{t+1}+M \tilde{Z}_{t} &= 0 \\
-[(F P+G) P+H] \tilde{X}_{t-1}+[(F Q+L) N+(F P+G) Q+M] \tilde{Z}_{t}&=0
-\end{align}
-
-
-\section*{Exercise 6}
-
-The functional forms are now 
-
-\begin{align} 
- u\left(c_{t}, \ell_{t}\right) &=\frac{c_{t}^{1-\gamma}-1}{1-\gamma}+a \frac{\left(1-\ell_{t}\right)^{1-\xi}-1}{1-\xi} \\ 
-  F\left(K_{t}, L_{t}, z_{t}\right) &= K_{t}^{\alpha} \parens{e^{z_{t}} L_{t}}^{1-\alpha} 
- \end{align}
-and the characterizing equations are now:
-
-\begin{align}
-c_{t}&=(1-\tau)\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]+k_{t}+T_{t}-k_{t+1} \\
-c_t^{-\g}&=\beta E_{t}\left\{c_{t+1}^{-\g}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right]\right\} \\
-\frac{a}{(1-\ell_t)^{\xi}}&=c_t^{-\g} w_{t}(1-\tau) \\
-r_{t}&=\a K_{t}^{\alpha - 1} e^{(1-\alpha)z_{t}}L_t^{-\a}\\
-w_{t}&=(1-\a)K_{t}^{\alpha} e^{(1- \alpha) z_{t}}L_t^{-\a} \\
-\tau\left[w_{t} \ell_{t}+\left(r_{t}-\delta\right) k_{t}\right]&=T_t
-\end{align}
-
-
-
-Dropping the definition equations, we have the following $\Gamma (k_{t+2},k_{t+1},k_t,l_{t+1},l_t, z_{t+1},z_{t})$ function:
-\begin{align}
-E_{t}\left\{ \beta c_{t+1}^{-\g}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right] - c_t^{-\g} \right\} &=0 \\
-\frac{a}{(1-\ell_t)^{\xi}}&=c_t^{-\g} w_{t}(1-\tau)
-\end{align}
-
-Denoting $X_t = \braces{K_{t+1},\ell_{t}}$, we have $\Gamma (X_{t+1},X_t,X_{t-1},z_{t+1},z_{t})$:
-
-\begin{align}
-E_{t} \braces{\begin{array}{ll}
-               \beta c_{t+1}^{-\g}\left[\left(r_{t+1}-\delta\right)(1-\tau)+1\right] - c_t^{-\g}  \\
-               \frac{a}{(1-\ell_t)^{\xi}} - c_t^{-\g} w_{t}(1-\tau)      \end{array}} &= 0
-\end{align}
-
-
 
 \end{document}
